@@ -21,6 +21,7 @@ const DisplayNotes = ({ title, content, onDelete, onEdit, id }) => {
 
     const handleEdit = () => {
         setIsEditing(true);
+        setShowColorPicker(false)
       };
 
     const handleSave = () => {
@@ -35,8 +36,8 @@ const DisplayNotes = ({ title, content, onDelete, onEdit, id }) => {
         setIsEditing(false);
       };
 
-      const handleCancel = () => {setIsEditing(false)}
-
+      const handleCancel = () => {setIsEditing(false); setShowColorPicker(false)}
+ 
       const handleColorChange = (color) => {
         setSelectedColor(color.hex);
         localStorage.setItem(`color-${id}`, color.hex)
@@ -68,7 +69,7 @@ const DisplayNotes = ({ title, content, onDelete, onEdit, id }) => {
                 <h1>{title}</h1>
                 <p>{content}</p>
                 <Tooltip text="Delete">
-                  <button onClick={() => onDelete(id)} className="btn-del">
+                  <button onClick={()=>onDelete(id)} className="btn-del">
                     <MdDeleteOutline size={25} />
                   </button>
                 </Tooltip>
