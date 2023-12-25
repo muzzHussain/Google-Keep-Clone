@@ -36,8 +36,7 @@ const CreateNote = ({ addNote }) => {
 
   const submitButton = (event) => {
     event.preventDefault();
-
-    if(!note.title.trim() || !note.content.trim()){
+    if(!note.title.trim() && !note.content.trim()){
       alert('Title or Content cannot be empty');
       setDefaultValues();
       shrink();
